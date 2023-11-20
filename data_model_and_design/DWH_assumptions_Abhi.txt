@@ -1,0 +1,15 @@
+Data Warehousing:
+	- dim_customers: This is a SDC type2 suggestion because a customer can change his address and if we want to keep track of customers based on location and target them in campaigning data or such then it would be handy.
+	- dim_orders: This is also a SCD type2 suggestion because a customer can update the order. 
+	Example: cust_id: 1 , order_id: 1, event_time: 1 Nov,2023, $100. Now if this customer makes an update to this order on 2 Nov 2023 and now the amt is 90 so we need to save the historic data just to see how the value has changed what needs to be changed in order to target max profit.
+
+	*** I would implement MERGE statements to handle UPSERTS ***
+	
+	- total_amount has "USD" in it so in data warehouse I am adding new column called currency_type which stores value of currency type and cleans the total_amount column and convert datatype into float
+	- Based of business needs I would parse tags[some_key] and store those value in dim_site_visit so that users can directly access JSON parsed value
+	
+	- We can always add more columns to our dimensions which may be derived  based out of our business rules.
+
+	
+
+
